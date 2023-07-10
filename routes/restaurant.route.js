@@ -4,7 +4,9 @@ const { restaurantModel } = require("../model/restaurant.model");
 const restRouter = express.Router();
 
 restRouter.post("/restro", async(req,res)=>{
-  const restro= new restaurantModel(req.body)
+  const {name,address,menu} = req.body;
+ 
+  const restro= new restaurantModel( {name,address,menu})
   await restro.save()
   res.send("Restaurant has been created")
 })
@@ -39,7 +41,35 @@ restRouter.get("/restaurants/:id", async(req, res)=>{
       res.status(400).send("ERROR OCCURED")
   }
 })
+// restaurantRoute.post("/restaurants",async(req,res)=>{
+//   try {
+//       const {name,address,menu} = req.body;
+//       const restaurant = new RestaurantModel({name,address,menu});
+//       await restaurant.save()
+//       res.status(200).send({msg:"Restaurant Added Successfully.",restaurant});
+//   } catch (error) {
+//       res.status(400).send(error);
+//   }
+// })
 
+// restaurantRoute.get("/restaurants",async(req,res)=>{
+//   try {
+//       const restaurant = await RestaurantModel.find();
+//       res.status(200).send(restaurant);
+//   } catch (error) {
+//       res.status(400).send(error);
+//   }
+// });
+
+// restaurantRoute.get("restaurants/:id",async(req,res)=>{
+//   try {
+//       const {id} = req.params;
+//       const restaurant = await RestaurantModel.findById(id);
+//       res.status(200).send(restaurant)
+//   } catch (error) {
+//       res.status(400).send(error);
+//   }
+// });
 
 //******************************************************************************** */
 

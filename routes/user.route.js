@@ -44,7 +44,7 @@ try {
   bcrypt.compare(password, check_user.password, function(err,result){
       if(result)
       {
-         const gen_token= jwt.sign({userID: check_user, _id}, "manshi", {expiresIn:"2hr"}) 
+         const gen_token= jwt.sign({userID: check_user. _id}, "manshi", {expiresIn:"2hr"}) 
          res.status(201).send({msg:"Login successful", token: gen_token, user: check_user})
       }
   })

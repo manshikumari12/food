@@ -1,7 +1,7 @@
 const express = require("express");
 
 const { orderModel } = require("../model/order.model");
-//bujik
+
 const orderRouter = express.Router();
 orderRouter.post("/orders", async(req,res)=>{
   try {
