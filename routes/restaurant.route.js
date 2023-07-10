@@ -41,35 +41,30 @@ restRouter.get("/restaurants/:id", async(req, res)=>{
       res.status(400).send("ERROR OCCURED")
   }
 })
-// restaurantRoute.post("/restaurants",async(req,res)=>{
-//   try {
-//       const {name,address,menu} = req.body;
-//       const restaurant = new RestaurantModel({name,address,menu});
-//       await restaurant.save()
-//       res.status(200).send({msg:"Restaurant Added Successfully.",restaurant});
-//   } catch (error) {
-//       res.status(400).send(error);
-//   }
-// })
 
-// restaurantRoute.get("/restaurants",async(req,res)=>{
-//   try {
-//       const restaurant = await RestaurantModel.find();
-//       res.status(200).send(restaurant);
-//   } catch (error) {
-//       res.status(400).send(error);
-//   }
-// });
-
-// restaurantRoute.get("restaurants/:id",async(req,res)=>{
+// restaurantRoute.post("/restaurants/:id/menu",async(req,res)=>{
 //   try {
 //       const {id} = req.params;
+//       const {name, description, price,image} = req.body;
 //       const restaurant = await RestaurantModel.findById(id);
-//       res.status(200).send(restaurant)
+//       if(!restaurant){
+//           return res.status(404).send({msg:"Restaurant is not Available."});
+
+//       }
+//        const newItem = {
+//           name,
+//           description,
+//           price,
+//           image
+//        }
+//        restaurant.menu.push(newItem)
+//        await restaurant.save()
+//        res.status(200).send({msg:"Item Added",newItem});
+
 //   } catch (error) {
-//       res.status(400).send(error);
+//       res.status(400).send({msg:error});
 //   }
-// });
+// })
 
 //******************************************************************************** */
 
